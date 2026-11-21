@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Night Harbour — Spot the Difference</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>NIGHT HARBOUR<small>SPOT THE DIFFERENCE</small></h1>
+    <div class="hud">
+      <div class="stat"><span class="label">Left to find</span><span class="value" id="counter">7 left</span></div>
+      <div class="stat"><span class="label">Score</span><span class="value" id="score">0</span></div>
+      <div class="stat"><span class="label">Time</span><span class="value" id="timer">0:00</span></div>
+      <div class="stat"><span class="label">Wrong</span><span class="value" id="mistakes">0</span></div>
+      <div class="stat"><span class="label">Hints</span><span class="value" id="hints">3</span></div>
+    </div>
+  </header>
+
+  <div id="panels">
+    <div class="panel-wrap">
+      <h2>Original <span class="tag">Panel A</span></h2>
+      <canvas id="panel-left" class="panel" width="640" height="400"></canvas>
+    </div>
+    <div class="panel-wrap">
+      <h2>Changed <span class="tag">Panel B — 7 differences hide here</span></h2>
+      <canvas id="panel-right" class="panel" width="640" height="400"></canvas>
+    </div>
+  </div>
+
+  <div id="scene-bar">
+    <span id="scene-name">Scene 1 of 3 — Sunset Pier</span>
+    <span id="scene-sub">Dermaga Senja — the harbour at golden hour</span>
+    <span id="scene-diff">Easy</span>
+    <div id="dots">
+      <button class="dot current" id="dot-0" type="button">1</button>
+      <button class="dot" id="dot-1" type="button">2</button>
+      <button class="dot" id="dot-2" type="button">3</button>
+    </div>
+  </div>
+
+  <div id="found-tray"><span class="tray-label">Found</span><span id="found-list"></span></div>
+
+  <div id="controls">
+    <button id="btn-hint" type="button">Hint (H) −25</button>
+    <button id="btn-magnifier" type="button">Magnifier: Off (M)</button>
+    <button id="btn-sound" type="button">Sound: On (S)</button>
+    <span id="help">Click a difference on either panel · Arrows move the crosshair, Enter marks it · N next scene</span>
+    <button id="btn-next" type="button" disabled>Next scene (N)</button>
+  </div>
+</div>
+
+<canvas id="lens" class="hidden" width="168" height="168"></canvas>
+
+<div id="overlay" class="hidden">
+  <div id="overlay-card">
+    <h2 id="overlay-title"></h2>
+    <p id="overlay-text"></p>
+    <button id="overlay-btn" type="button"></button>
+  </div>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+/* styles.css — Night Harbour's frame: a dark harbour-night page, the two
+   panels side by side, a HUD that reads at a glance, and the overlays. */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0a0e1a;
+  color: #f2ede4;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+#app {
+  width: 1280px;
+  margin: 0 auto;
+  padding: 10px 12px 12px;
+}
+
+/* ---- header / HUD ---- */
+header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 4px 10px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: 1px;
+  color: #ffd166;
+  white-space: nowrap;
+}
+
+h1 small {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #8fa3c8;
+  font-weight: 600;
+}
+
+.hud {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+  align-items: center;
+}
+
+.stat {
+  background: #141a2e;
+  border: 1px solid #2a3352;
+  border-radius: 8px;
+  padding: 5px 12px;
+  text-align: center;
+  min-width: 76px;
+}
+
+.stat .label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8fa3c8;
+}
+
+.stat .value {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+#counter {
+  color: #ffd166;
+}
+
+#counter.done {
+  color: #2fd67a;
+}
+
+/* ---- panels ---- */
+#panels {
+  display: flex;
+  gap: 16px;
+}
+
+.panel-wrap {
+  flex: 1;
+}
+
+.panel-wrap h2 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8fa3c8;
+  display: flex;
+  justify-content: space-between;
+}
+
+.panel-wrap h2 .tag {
+  color: #5b6b8c;
+  letter-spacing: 1px;
+}
+
+canvas.panel {
+  display: block;
+  width: 616px;
+  height: 385px;
+  background: #10182c;
+  border: 2px solid #2a3352;
+  border-radius: 10px;
+  cursor: crosshair;
+}
+
+canvas.panel:hover {
+  border-color: #ffd166;
+}
+
+/* ---- scene bar ---- */
+#scene-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #141a2e;
+  border: 1px solid #2a3352;
+  border-radius: 10px;
+}
+
+#scene-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: #f2ede4;
+}
+
+#scene-sub {
+  font-size: 13px;
+  color: #8fa3c8;
+}
+
+#scene-diff {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #0a0e1a;
+  background: #ffd166;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-weight: 700;
+}
+
+#dots {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #2a3352;
+  background: #0a0e1a;
+  color: #8fa3c8;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dot.current {
+  border-color: #ffd166;
+  color: #ffd166;
+}
+
+.dot.done {
+  border-color: #2fd67a;
+  color: #2fd67a;
+}
+
+/* ---- found tray ---- */
+#found-tray {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #141a2e;
+  border: 1px solid #2a3352;
+  border-radius: 10px;
+  min-height: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+#found-tray .tray-label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8fa3c8;
+  margin-right: 4px;
+}
+
+.found-chip {
+  background: #123524;
+  color: #2fd67a;
+  border: 1px solid #1f6b43;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 13px;
+}
+
+.found-none {
+  color: #5b6b8c;
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* ---- controls ---- */
+#controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+button {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #f2ede4;
+  background: #1c2440;
+  border: 1px solid #2a3352;
+  border-radius: 8px;
+  padding: 9px 16px;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  border-color: #ffd166;
+  color: #ffd166;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+button.on {
+  background: #3a2f10;
+  border-color: #ffd166;
+  color: #ffd166;
+}
+
+#btn-next {
+  margin-left: auto;
+  background: #2f6b3a;
+  border-color: #2fd67a;
+}
+
+#btn-next:disabled {
+  background: #1c2440;
+  border-color: #2a3352;
+}
+
+#help {
+  font-size: 12px;
+  color: #5b6b8c;
+}
+
+/* ---- magnifier lens ---- */
+#lens {
+  position: fixed;
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 30;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+.hidden { display: none !important; }
+
+/* ---- overlay (scene clear / game clear) ---- */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 18, 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+}
+
+#overlay-card {
+  background: #141a2e;
+  border: 2px solid #ffd166;
+  border-radius: 16px;
+  padding: 28px 34px;
+  max-width: 520px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+#overlay-title {
+  margin: 0 0 10px;
+  font-size: 28px;
+  color: #ffd166;
+}
+
+#overlay-text {
+  margin: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #d7dcea;
+}
+
+#overlay-btn {
+  font-size: 16px;
+  padding: 12px 26px;
+  background: #2f6b3a;
+  border-color: #2fd67a;
+}
